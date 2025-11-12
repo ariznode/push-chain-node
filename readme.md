@@ -17,26 +17,57 @@ source ~/.profile
 go version
 ```
 
+Make sure go version 1.23+
+
 ## Running Localnet
 
 Locknet is the local testnet environment for Push Chain. To spin up Locknet, use the following command:
 
+Create screen session
+
+```sh
+screen -S push
+```
+
 ```sh
 git clone https://github.com/pushchain/push-chain-node.git
 cd push-chain-node
+```
+
+```sh
+make install
+```
+
+```sh
+echo 'export PATH=$PATH:$(go env GOPATH)/bin' >> ~/.bashrc
+source ~/.bashrc
+```
+#Run Node
+
+```sh
 make sh-testnet
 ```
 
-## Directory Structure
+## Key Command
 
-- `app/` – Core application logic and configuration
-- `x/` – Cosmos SDK modules (UExecutor, UTxVerifier, etc.)
-- `precompiles/` – EVM precompiles for universal verification
-- `proto/` – Protobuf definitions
-- `cmd/` – CLI entrypoints
-- `deploy/` – Deployment scripts and testnet configs
-- `interchaintest/` – E2E and integration tests
-- `utils/` – Utility functions
+- Detach screen
+
+```sh
+ctrl a + d
+```
+
+- attach screen
+
+```
+screen -d -r push
+```
+
+- Stop Node
+
+```sh
+ctrl + c
+```
+
 
 ## Contributing
 
