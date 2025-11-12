@@ -23,12 +23,6 @@ Make sure go version 1.23+
 
 Locknet is the local testnet environment for Push Chain. To spin up Locknet, use the following command:
 
-Create screen session
-
-```sh
-screen -S push
-```
-
 ```sh
 git clone https://github.com/pushchain/push-chain-node.git
 cd push-chain-node
@@ -42,11 +36,30 @@ make install
 echo 'export PATH=$PATH:$(go env GOPATH)/bin' >> ~/.bashrc
 source ~/.bashrc
 ```
+
 #Run Node
+
+Create screen session and run inside screen
+
+```sh
+screen -S push
+```
 
 ```sh
 make sh-testnet
 ```
+
+# Node Status
+
+Check node status
+
+Detach screen first with ctrl a + d
+
+```sh
+pchaind status
+```
+
+If "catching_up": false that means your node is synced
 
 ## Key Command
 
