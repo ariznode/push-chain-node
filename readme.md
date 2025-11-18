@@ -1,4 +1,4 @@
-## Specification
+# Specification
 - CPU 4 core
 - 16 GB ram
 - ssd 400gb
@@ -42,7 +42,7 @@ echo 'export PATH=$PATH:$(go env GOPATH)/bin' >> ~/.bashrc
 source ~/.bashrc
 ```
 
-#Run Node
+## Run Node
 
 Create screen session and run inside screen
 
@@ -54,7 +54,7 @@ screen -S push
 make sh-testnet
 ```
 
-# Node Status
+## Node Status
 
 Check node status
 
@@ -65,6 +65,86 @@ pchaind status
 ```
 
 If "catching_up": false that means your node is synced
+
+
+# Validator
+
+You can run Push validator on new tab on your VPS or detach screen by pressing ctrl a + d after node is running
+
+## Run Validator
+
+```sh
+cd ~/push-chain-node
+```
+
+```sh
+curl -fsSL https://get.push.network/node/install.sh | bash
+```
+
+Then fund your validator address with minimum 2 $push.
+
+Claim push token : https://faucet.push.org/
+
+## Verify Sync
+
+```sh
+push-validator status
+```
+
+## Register Validator
+
+```sh
+push-validator register-validator
+```
+
+## Monitor Dashboard
+
+Monitor your validator in real-time with an interactive dashboard:
+
+```sh
+push-validator dashboard
+```
+
+### Validator command
+
+#### Core
+
+```bash
+push-validator start                # Start with state sync (2-3 min)
+push-validator stop                 # Stop node
+push-validator status               # Check sync & validator status
+push-validator dashboard            # Live interactive monitoring dashboard
+push-validator register-validator   # Register as validator
+push-validator logs                 # View logs
+```
+
+#### Validator Operations
+
+```bash
+push-validator increase-stake       # Increase validator stake and voting power
+push-validator unjail               # Restore jailed validator to active status
+push-validator withdraw-rewards     # Withdraw validator rewards and commission
+push-validator restake              # Auto-withdraw and restake all rewards to increase validator power
+```
+
+#### Monitoring
+
+```bash
+push-validator sync            # Monitor sync progress
+push-validator peers           # Show peer connections (from local RPC)
+push-validator doctor          # Run diagnostic checks on validator setup
+```
+
+#### Management
+
+```bash
+push-validator restart         # Restart node
+push-validator validators      # List validators (supports --output json)
+push-validator balance         # Check balance (defaults to validator key)
+push-validator reset           # Reset chain data (keeps address book)
+push-validator full-reset      # ⚠️ Complete reset (deletes ALL keys and data)
+push-validator backup          # Backup config and validator state
+```
 
 ## Key Command
 
