@@ -1,3 +1,8 @@
+## Specification
+- CPU 4 core
+- 16 GB ram
+- ssd 400gb
+
 ## Install Dependencies
 ```sh
 apt update && apt upgrade -y
